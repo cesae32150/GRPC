@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package pokemons;
+
+// Servicio de Pokémon
+service PokemonsService {
+  rpc CreatePokemon (Pokemon) returns (Pokemon);
+  rpc ReadPokemon (PokemonRequest) returns (Pokemon);
+  rpc UpdatePokemon (Pokemon) returns (Pokemon);
+  rpc DeletePokemon (PokemonRequest) returns (Empty);
+}
+
+message Pokemon {
+  int32 id = 1;
+  string nombre = 2;
+  string descripcion = 3;
+  int32 edad = 4;
+  float poder = 5;
+}
+
+message PokemonRequest {
+  int32 id = 1;
+}
+
+message Empty {}
