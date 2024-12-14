@@ -4,7 +4,10 @@ FROM python:3.9-slim
 # Establece el directorio de trabajo en el contenedor
 WORKDIR /app
 
-# Copia todos los archivos del directorio local al contenedor
+# Copia el archivo requirements.txt para instalar las dependencias
+COPY requirements.txt .
+
+# Copia los demás archivos del directorio local al contenedor
 COPY pokemons_pb2_grpc.py .
 COPY pokemons_pb2.py .
 COPY pokemons_service.py .
